@@ -1,13 +1,12 @@
 import React from "react";
 
-export default function Body({ books, loading, error, pinBook }) {
+export default function Pinned({ pinnedBooks }) {
   return (
-    <div className="body">
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+    <div className="pinned-books">
+      <h2>Pinned Books</h2>
       <div className="book-lists">
-        {books.length > 0 ? (
-          books.map(book => (
+        {pinnedBooks.length > 0 ? (
+          pinnedBooks.map(book => (
             <div key={book.id} className="book-item">
               <img
                 src={book.volumeInfo.imageLinks?.thumbnail}
@@ -22,14 +21,12 @@ export default function Body({ books, loading, error, pinBook }) {
                     ? `${book.volumeInfo.description.slice(0, 300)}...`
                     : "No description available."}
                 </p>
-                <button className="pin" onClick={() => pinBook(book)}>
-                  Pin Book
-                </button>
+                <button className="pin">Pin Book</button>
               </div>
             </div>
           ))
         ) : (
-          <p>No books found</p>
+          <h2>You don't have any books pinned yet</h2>
         )}
       </div>
     </div>
