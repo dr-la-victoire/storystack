@@ -10,12 +10,21 @@ export default function Body({ books, loading, error }) {
         {books.length > 0 ? (
           books.map(book => (
             <div key={book.id} className="book-item">
-              <h3>{book.volumeInfo.title}</h3>
-              <p>{book.volumeInfo.authors}</p>
               <img
-                src={book.volumeInfo.imageLinks.thumbnail}
+                src={book.volumeInfo.imageLinks?.thumbnail}
                 alt={book.volumeInfo.title}
+                style={{ width: 100, height: 150 }}
               />
+              <div className="book-text">
+                <h3>{book.volumeInfo.title}</h3>
+                <p className="authors">{book.volumeInfo.authors?.join(", ")}</p>
+                <p className="book-description">
+                  {book.volumeInfo.description
+                    ? `${book.volumeInfo.description.slice(0, 300)}...`
+                    : "No description available."}
+                </p>
+                <button className="pin">Pin Book</button>
+              </div>
             </div>
           ))
         ) : (
