@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Pinned({ pinnedBooks }) {
+export default function Pinned({ pinnedBooks, unpinBooks }) {
   return (
     <div className="pinned-books">
       <h2>Pinned Books</h2>
@@ -21,12 +21,14 @@ export default function Pinned({ pinnedBooks }) {
                     ? `${book.volumeInfo.description.slice(0, 300)}...`
                     : "No description available."}
                 </p>
-                <button className="pin">Pin Book</button>
+                <button className="pin" onClick={() => unpinBooks(book)}>
+                  Unpin Book
+                </button>
               </div>
             </div>
           ))
         ) : (
-          <h2>You don't have any books pinned yet</h2>
+          <p>You don't have any books pinned yet</p>
         )}
       </div>
     </div>
