@@ -38,8 +38,15 @@ export default function App() {
   const pinnedBooksFunction = book => {
     if (!pinnedBooks.some(pinned => pinned.id === book.id)) {
       setPinnedBooks([...pinnedBooks, book]);
-      console.log("Book successfully pinned");
+      // console.log("Book successfully pinned");
     }
+
+    setBooks(prevBooks => prevBooks.filter(b => b.id !== book.id));
+  };
+
+  // Function to unpin a book from pinned books
+  const unpinBookFunction = book => {
+    setPinnedBooks(pinnedBooks.filter(pinned => pinned.id !== book.id));
   };
 
   return (
@@ -51,20 +58,30 @@ export default function App() {
           onSearch={searchFunction}
         />
         <nav>
-          <Link to="/pinned">Pinned Books</Link>
+          <Link to="/">Home</Link> | <Link to="/pinned">Pinned Books</Link>
         </nav>
         <Routes>
           <Route
+            path="/"
+            element={
+              <Body
+                books={books}
+                loading={loading}
+                error={error}
+                pinBook={pinnedBooksFunction}
+              />
+            }
+          />
+          <Route
             path="/pinned"
-            element={<Pinned pinnedBooks={pinnedBooks} />}
+            element={
+              <Pinned
+                pinnedBooks={pinnedBooks}
+                unpinBooks={unpinBookFunction}
+              />
+            }
           />
         </Routes>
-        <Body
-          books={books}
-          loading={loading}
-          error={error}
-          pinBook={pinnedBooksFunction}
-        />
       </div>
     </Router>
   );
