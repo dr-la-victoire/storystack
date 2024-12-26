@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Body({ books, loading, error, pinBook }) {
   return (
     <div className="body">
+      <button className="back-btn">
+        <Link to="/pinned">Back To Pinned Books</Link>
+      </button>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <div className="book-lists">

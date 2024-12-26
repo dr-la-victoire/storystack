@@ -83,9 +83,6 @@ export default function App() {
             }
           />
         </Routes>
-        <button className="pinned-books-btn">
-          <Link to="/pinned">Pinned Books</Link>
-        </button>
       </div>
     </Router>
   );

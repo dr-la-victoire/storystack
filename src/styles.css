@@ -87,7 +87,8 @@ body {
 }
 
 /* BUTTON STYLES */
-.pinned-books-btn {
+.pinned-books-btn,
+.back-btn {
   text-align: center;
   height: 3em;
   width: 10%;
@@ -103,12 +104,19 @@ body {
   transition: background-color 0.8s ease;
 }
 
-.pinned-books-btn a {
+.back-btn {
+  font-size: 10px;
+  padding: 5px 10px;
+}
+
+.pinned-books-btn a,
+.back-btn a {
   text-decoration: none;
   color: #ffffff;
 }
 
 .pinned-books-btn:hover,
+.back-btn:hover,
 .pin:hover,
 .unpin:hover {
   background-color: #109dda;
