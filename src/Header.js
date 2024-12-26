@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Header({ search, setSearch, onSearch }) {
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    onSearch();
+    navigate("/search-results");
+  };
   return (
     <div className="header">
       <h1>StoryStack</h1>
@@ -11,7 +18,7 @@ export default function Header({ search, setSearch, onSearch }) {
           value={search}
           onChange={e => setSearch(e.target.value)}
         />
-        <button onClick={onSearch}>Search</button>
+        <button onClick={handleSearch}>Search</button>
       </div>
     </div>
   );

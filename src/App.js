@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Body from "./Body";
 import Pinned from "./Pinned";
+import Main from "./Main";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
@@ -11,6 +12,7 @@ export default function App() {
   const [loading, setLoading] = useState(false); // Setting state for loading
   const [error, setError] = useState(""); // Setting state for error messages
   const [pinnedBooks, setPinnedBooks] = useState([]); // Setting state for pinned Books
+  const [view, setView] = useState("pinned");
 
   // Searching the API for books
   const searchFunction = async () => {
@@ -20,6 +22,7 @@ export default function App() {
 
     setLoading(true);
     setError("");
+    setView("search");
 
     try {
       const response = await axios.get(
@@ -57,12 +60,10 @@ export default function App() {
           setSearch={setSearch}
           onSearch={searchFunction}
         />
-        <nav>
-          <Link to="/">Home</Link> | <Link to="/pinned">Pinned Books</Link>
-        </nav>
         <Routes>
+          <Route path="/" element={<Main />} />
           <Route
-            path="/"
+            path="/search-results"
             element={
               <Body
                 books={books}
@@ -82,6 +83,9 @@ export default function App() {
             }
           />
         </Routes>
+        <button className="pinned-books-btn">
+          <Link to="/pinned">Pinned Books</Link>
+        </button>
       </div>
     </Router>
   );
