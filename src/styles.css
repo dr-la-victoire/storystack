@@ -24,7 +24,6 @@ body {
 }
 
 .search {
-  margin-right: 10em;
   display: flex;
   justify-content: space-between;
   gap: 0.5em;
@@ -131,4 +130,29 @@ body {
   color: #ffffff;
   padding: 10px 20px;
   margin-top: 0.5em;
+}
+
+/* RESPONSIVE DESIGN FOR OTHER SCREEN SIZES */
+
+/* SMALL SCREENS */
+@media (max-width: 450px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .search {
+    width: 100%;
+    margin-left: auto;
+  }
+
+  .main {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pinned-books-btn,
+  .back-btn {
+    width: 50%;
+  }
 }
