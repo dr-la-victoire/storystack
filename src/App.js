@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Body from "./Body";
 import Pinned from "./Pinned";
@@ -11,7 +11,10 @@ export default function App() {
   const [books, setBooks] = useState([]); // Setting state for the books fetched from Google Books API
   const [loading, setLoading] = useState(false); // Setting state for loading
   const [error, setError] = useState(""); // Setting state for error messages
-  const [pinnedBooks, setPinnedBooks] = useState([]); // Setting state for pinned Books
+  const [pinnedBooks, setPinnedBooks] = useState(() => {
+    const storedPinnedBooks = localStorage.getItem("pinnedBooks");
+    return storedPinnedBooks ? JSON.parse(storedPinnedBooks) : [];
+  }); // Setting state for pinned Books
   const [view, setView] = useState("pinned");
 
   // Searching the API for books
@@ -51,6 +54,19 @@ export default function App() {
   const unpinBookFunction = book => {
     setPinnedBooks(pinnedBooks.filter(pinned => pinned.id !== book.id));
   };
+
+  // Loading Pinned Books from localStorage
+  /*useEffect(() => {
+    const storedPinnedBooks = localStorage.getItem("pinnedBooks");
+    if (storedPinnedBooks) {
+      setPinnedBooks(JSON.parse(storedPinnedBooks));
+    }
+  }, []);*/
+
+  // Saving Pinned Books to localStorage
+  useEffect(() => {
+    localStorage.setItem("pinnedBooks", JSON.stringify(pinnedBooks));
+  }, [pinnedBooks]);
 
   return (
     <Router>
