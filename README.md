@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# StoryStack - Book Search & Pinning App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+StoryStack is a web app that allows users to search for books via the Google Books API, view search results, and pin their favorite books and form a collection. Pinned books are saved locally so users can access them even after page reloads. Users can also unpin books from their collection.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Search for Books:** Search books by title, author, or keywords using the Google Books API.
+- **Pin Books:** Pin books you like and save them to a collection.
+- **View Pinned Books:** Easily access pinned books from a separate page.
+- **Local Storage Support:** Pinned books are saved in local storage, so they persist even after a page reload.
+- **Responsive Design:** The app is fully responsive and works across different screen sizes.
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. React: Front-end JavaScript library for building user interfaces.
+2. React Router: For managing navigation between pages.
+3. Axios: To make HTTP requests to the Google Books API.
+4. LocalStorage: To persist pinned books across sessions.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+You can view the project [here](https://storystack.vercel.app)
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Use the search bar to find books by title, author, or keyword. Click the "Pin Book" button next to a book to add it to your pinned books collection. Pinning a book means you're saving the book to be read later. Navigate to the "Pinned Books" page to see all your pinned books. Click the "Unpin" button next to any pinned book to remove it from your collection when you are done reading.
 
-### `npm run build`
+## Concepts
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project covered the following concepts:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. The use of state and props in React.
+2. How to link pages in React with React Router.
+3. Fetching from an API with React.
+4. Responsive web design with Vanilla CSS.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open-source and available under the MIT License.
