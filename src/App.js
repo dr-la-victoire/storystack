@@ -55,14 +55,6 @@ export default function App() {
     setPinnedBooks(pinnedBooks.filter(pinned => pinned.id !== book.id));
   };
 
-  // Loading Pinned Books from localStorage
-  /*useEffect(() => {
-    const storedPinnedBooks = localStorage.getItem("pinnedBooks");
-    if (storedPinnedBooks) {
-      setPinnedBooks(JSON.parse(storedPinnedBooks));
-    }
-  }, []);*/
-
   // Saving Pinned Books to localStorage
   useEffect(() => {
     localStorage.setItem("pinnedBooks", JSON.stringify(pinnedBooks));
